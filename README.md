@@ -1,5 +1,8 @@
 # FROM scratch
 
+[![](https://images.microbadger.com/badges/image/rene2/fromscratch.svg)](https://microbadger.com/images/rene2/fromscratch "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/rene2/fromscratch.svg)](https://microbadger.com/images/rene2/fromscratch "Get your own version badge on microbadger.com")
+
 Demonstration of creating a base image that contains a statically-linked program.
 
 ## The background

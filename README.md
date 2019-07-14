@@ -25,7 +25,7 @@ The [demo.sh](demo.sh) script builds and inspects the image ([jq](https://stedol
 
 Then, it runs the unique executable (`a.out`) in the container.
 
-![demo.png](demo.png)
+![demo.png](https://raw.githubusercontent.com/rene-d/FROM-scratch/master/demo.png)
 
 ## To go further : technical details
 

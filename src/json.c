@@ -57,9 +57,16 @@ static char *request(const char *url)
         goto error;
 
     FILE *fp = fopen("data/commits.json", "r");
-    size_t count = fread(data, 1, BUFFER_SIZE, fp);
-    fclose(fp);
-    data[count] = 0;
+    if (fp != NULL)
+    {
+        size_t count = fread(data, 1, BUFFER_SIZE, fp);
+        fclose(fp);
+        data[count] = 0;
+    }
+    else
+    {
+        strncpy(data, "[]", BUFFER_SIZE);
+    }
 
     return data;
 

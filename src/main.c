@@ -15,10 +15,33 @@ int main_tree();
 int main_jansson(int argc, char *argv[]);
 
 
+void cat(const char *filename)
+{
+    FILE *f = fopen(filename, "r");
+    if (f == NULL) return;
+
+    printf("\n\033[7mFile %s\033[0m\n", filename);
+
+    char buffer[256];
+    size_t got;
+    while ((got = fread(buffer, 1, sizeof(buffer), f)) > 0)
+    {
+        fwrite(buffer, 1, got, stdout);
+    }
+
+    fclose(f);
+}
+
+
 int main()
 {
     extern const char welcome[];
     fputs(welcome, stdout);
+
+    cat("/proc/version");
+    cat("/etc/hostname");
+    cat("/etc/hosts");
+    cat("/etc/resolv.conf");
 
     printf("\033[1;32m");
     printf("\ngethostbyname ===>\n");
@@ -58,22 +81,24 @@ int main()
     printf("\033[0m");
 
     // ---------------------------------------------------------------------
+    if (0)
+    {
+        printf("\033[1;34m");
 
-    printf("\033[1;34m");
+        printf("\nhash ===>\n");
+        main_hash();
 
-    printf("\nhash ===>\n");
-    main_hash();
+        printf("\nlist ===>\n");
+        main_list();
 
-    printf("\nlist ===>\n");
-    main_list();
+        printf("\nsortlist ===>\n");
+        main_sortlist();
 
-    printf("\nsortlist ===>\n");
-    main_sortlist();
+        printf("\ntree ===>\n");
+        main_tree();
 
-    printf("\ntree ===>\n");
-    main_tree();
-
-    printf("\033[0m");
+        printf("\033[0m");
+    }
 
     // ---------------------------------------------------------------------
 
